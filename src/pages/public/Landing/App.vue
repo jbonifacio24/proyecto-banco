@@ -1,19 +1,21 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Demo from './parts/Demo.vue';
+import PublicLayout from './parts/PublicLayout.vue';
 
-/*import { RouterLink, RouterView } from 'vue-router';*/
 export default defineComponent({
     name: "LandingApp",
     components: {
-        Demo
+        Demo,
+        PublicLayout
     }
 })
 </script>
 
 <template>
-    <Demo />
-    <!-- <RouterView /> -->
+    <PublicLayout>
+        <Demo />
+    </PublicLayout>
 </template>
 
 <style scoped></style>

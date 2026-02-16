@@ -28,8 +28,7 @@ export default defineComponent({
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="relative h-[600px] flex items-end justify-center lg:justify-start">
                     <img class="relative z-10 h-full w-auto object-contain object-bottom drop-shadow-2xl"
-                        data-alt="Person holding tablet transparent background"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA9Dr-okUF72OoP9UXDaMZrKiH_vyskBG841rMFjnbjGSgOxvXKsf--479xGonK1V1O-wnIlWwS56wuRBjspwe7xVcUuSHfNbUYb0KxfuY_hpNGnqFXXW-16uskbudHJCVkK6flf6cXyBecazMpi_46e3WWQm_4a9yYFhBchskBpmuq1FRhCFeninDLIlw8bLwms1jvW8ruZXuH-WY3PUyxJTtu_hD9c_tiOEJMc3kgGz11XnKQuxrirCNizkAmS83ZTzfl5aEoU2Z"
+                        data-alt="Person holding tablet transparent background" src="/assets/img/holder2.webp"
                         draggable="false" />
                 </div>
                 <div class="text-white space-y-6">

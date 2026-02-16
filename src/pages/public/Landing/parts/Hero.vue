@@ -61,8 +61,7 @@ export default defineComponent({
                     <div class="relative w-full h-full overflow-hidden"
                         style="border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;">
                         <img class="w-full h-full object-cover object-center scale-110" data-alt="Person with laptop"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA9Dr-okUF72OoP9UXDaMZrKiH_vyskBG841rMFjnbjGSgOxvXKsf--479xGonK1V1O-wnIlWwS56wuRBjspwe7xVcUuSHfNbUYb0KxfuY_hpNGnqFXXW-16uskbudHJCVkK6flf6cXyBecazMpi_46e3WWQm_4a9yYFhBchskBpmuq1FRhCFeninDLIlw8bLwms1jvW8ruZXuH-WY3PUyxJTtu_hD9c_tiOEJMc3kgGz11XnKQuxrirCNizkAmS83ZTzfl5aEoU2Z"
-                            draggable="false" />
+                            src="/assets/img/holder1.webp" draggable="false" />
                     </div>
                 </div>
             </div>

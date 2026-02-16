@@ -20,8 +20,7 @@ export default defineComponent({
                 <div class="relative">
                     <div class="overflow-hidden rounded-tl-[100px] rounded-br-[100px] shadow-xl h-[500px]">
                         <img class="w-full h-full object-cover" data-alt="Small business owners success story"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSPmy9slGXU1hg15QP_teIWTgZeN6ORXG7K_9rFbPw4yt0VAoa_Ydg3MgWlpU3knnnTuDAf_7GTypRTcCagwzA1NlBTy43i8DPxN5NlrjhnZlcCMc597BvKLsHnRKVqIi26v19YN53t7v8A0wkBKorKT4j5RJHTWEnl4rmHJv0UDQu3PApXcDfp4Tm_k5q8HF9ED7GLwR_BrIQJcpCZFxoGRNDegW29-KcUffVhJpj_szaPfWG0GEyCYLXgPNQP6jLjplXqexGDZhY"
-                            draggable="false" />
+                            src="/assets/img/holder3.webp" draggable="false" />
                     </div>
                 </div>
                 <div>

@@ -174,7 +174,7 @@ export default defineComponent({
                                             class="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-300">
                                             <Wallet class="w-5 h-5" />
                                         </div>
-                                        <ArrowRight class="text-gray-400 cursor-pointer hover:text-gray-600 w-5 h-5" />
+                                        <!--<ArrowRight class="text-gray-400 cursor-pointer hover:text-gray-600 w-5 h-5" />-->
                                     </div>
                                     <h3 class="text-sm text-gray-500 dark:text-gray-400 font-medium">Cuenta de Ahorros
                                     </h3>
@@ -198,7 +198,7 @@ export default defineComponent({
                                             class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-300">
                                             <Landmark class="w-5 h-5" />
                                         </div>
-                                        <ArrowRight class="text-gray-400 cursor-pointer hover:text-gray-600 w-5 h-5" />
+                                        <!--<ArrowRight class="text-gray-400 cursor-pointer hover:text-gray-600 w-5 h-5" />-->
                                     </div>
                                     <h3 class="text-sm text-gray-500 dark:text-gray-400 font-medium">Cuenta Corriente
                                     </h3>

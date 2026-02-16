@@ -30,7 +30,7 @@ export default defineComponent({
     <div class="font-display bg-slate-900 text-slate-100 h-screen overflow-hidden flex flex-col md:flex-row">
         <div class="hidden md:flex flex-1 relative bg-slate-800 items-center justify-center overflow-hidden">
             <img alt="Laptop showing banking dashboard" class="absolute inset-0 w-full h-full object-cover opacity-90"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy5R4uf6K49jenHj-hZ2n6Gh7c6YGPurye3USXgfCYV48-2vC0yHib7Ea3O4kXv_QWrg9WZ9LEBORP_zMzRZ8-Fl2Ogjywz7I26Fax386Tve9rJrhmKrUWiGQbk5C_-jH9hdoGUHFNTJT_U15AecjHYTB0P5A_sWEOsTANXVz5sEyVLJZ1YVJohXc2DNrqeweXPWV_GIkVFt_qjS9IMulTkgPSFZgfhfPr4BxMKrbOAnZCMtJM6QqTZUK9IfXxHhTxDvHnrkzzSrUj" />
+                src="/assets/img/holder4.webp" />
             <div class="absolute inset-0 bg-gradient-to-r from-slate-900/40 to-transparent"></div>
             <div class="absolute bottom-8 left-8 flex items-center gap-4 text-white/80 z-10">
                 <div class="flex gap-3">

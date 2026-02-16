@@ -1,0 +1,24 @@
+@import "tailwindcss";
+/*@import "tailwindcss-primeui";*/
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+    --color-primary: #FF6B00;
+    --color-background-dark: #101922;
+    --color-background-light: #f6f7f8;
+    --color-surface-dark: #111111;
+    --color-surface-light: #ffffff;
+    /*--color-card-dark: #1e2832;
+    --color-border-dark: #283039;
+    
+    --color-accent: #FDB931;*/
+
+    --font-display: Inter, sans-serif;
+    --font-body: "Noto Sans", sans-serif;
+
+    --radius-default: 0.25rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-full: 9999px;
+}

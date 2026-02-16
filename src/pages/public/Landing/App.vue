@@ -1,21 +1,17 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Demo from './parts/Demo.vue';
-import PublicLayout from './parts/PublicLayout.vue';
 
 export default defineComponent({
     name: "LandingApp",
     components: {
-        Demo,
-        PublicLayout
+        Demo
     }
 })
 </script>
 
 <template>
-    <PublicLayout>
-        <Demo />
-    </PublicLayout>
+    <Demo />
 </template>
 
 <style scoped></style>

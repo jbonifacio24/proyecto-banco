@@ -7,6 +7,7 @@ import Partners from './Partners.vue';
 import Services from './Services.vue';
 import CTA from './CTA.vue';
 import Footer from './Footer.vue';
+import PublicLayout from './PublicLayout.vue';
 
 export default defineComponent({
     name: 'Demo',
@@ -17,17 +18,20 @@ export default defineComponent({
         Partners,
         Services,
         CTA,
-        Footer
+        Footer,
+        PublicLayout
     }
 });
 </script>
 
 <template>
-    <Hero />
-    <Features />
-    <Info />
-    <Partners />
-    <Services />
-    <CTA />
-    <Footer />
+    <PublicLayout>
+        <Hero />
+        <Features />
+        <Info />
+        <Partners />
+        <Services />
+        <CTA />
+        <Footer />
+    </PublicLayout>
 </template>

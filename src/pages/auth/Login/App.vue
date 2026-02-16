@@ -11,9 +11,7 @@ export default defineComponent({
 </script>
 
 <template>
-    <div class="font-display bg-slate-900 text-slate-100 h-screen overflow-hidden flex flex-col md:flex-row">
-        <LoginForm />
-    </div>
+    <LoginForm />
 </template>
 
 <style scoped></style>

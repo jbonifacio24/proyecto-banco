@@ -11,10 +11,7 @@ export default defineComponent({
 </script>
 
 <template>
-    <div
-        class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark min-h-screen flex flex-col transition-colors duration-200">
-        <Dashboard />
-    </div>
+    <Dashboard />
 </template>
 
 <style scoped></style>

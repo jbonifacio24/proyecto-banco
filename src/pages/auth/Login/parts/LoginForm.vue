@@ -8,7 +8,8 @@ import {
     Landmark,
     User,
     Lock,
-    ArrowRight
+    ArrowRight,
+    CreditCard
 } from 'lucide-vue-next';
 
 export default defineComponent({
@@ -21,7 +22,13 @@ export default defineComponent({
         Landmark,
         User,
         Lock,
-        ArrowRight
+        ArrowRight,
+        CreditCard
+    },
+    data() {
+        return {
+            documentType: 'DNI'
+        }
     }
 });
 </script>
@@ -64,26 +71,51 @@ export default defineComponent({
                             class="text-primary">App</span></span>
                 </div>
                 <h1 class="text-2xl font-bold text-white mb-8 border-l-4 border-primary pl-4">Banca por Internet</h1>
-                <form action="#" class="space-y-6">
-                    <div class="flex justify-between items-end mb-2">
-                        <label class="text-sm font-bold text-slate-300" for="username">ID de Usuario</label>
-                        <a class="text-xs text-primary hover:text-primary-dark transition-colors" href="#">¿Olvidé mi
-                            usuario?</a>
-                    </div>
-                    <div class="relative group">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <User class="text-slate-500 group-focus-within:text-primary transition-colors w-5 h-5" />
-                        </div>
-                        <input
-                            class="block w-full pl-10 pr-3 py-3 bg-white text-slate-900 border-0 rounded-md ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-primary focus:bg-white placeholder:text-slate-400 sm:text-sm sm:leading-6 transition-all"
-                            id="username" placeholder="Ingrese su ID" type="text" />
-                    </div>
-                    <div class="space-y-2 pt-2">
+                <form action="#" class="space-y-4">
+                    <div class="space-y-2">
                         <div class="flex justify-between items-end mb-2">
-                            <label class="text-sm font-bold text-slate-300" for="password">Contraseña</label>
+                            <label class="text-sm font-bold text-slate-300" for="docNumber">Documento de
+                                Identidad</label>
                             <a class="text-xs text-primary hover:text-primary-dark transition-colors" href="#">¿Olvidé
-                                mi
-                                contraseña?</a>
+                                mi usuario?</a>
+                        </div>
+                        <div class="flex gap-0">
+                            <select v-model="documentType"
+                                class="w-24 bg-white text-slate-900 border-0 rounded-l-lg ring-1 ring-inset ring-slate-300 focus:outline-none focus:ring-1 focus:ring-primary py-2 px-2 text-sm transition-all appearance-none cursor-pointer">
+                                <option value="DNI">DNI</option>
+                                <option value="RUC">RUC</option>
+                            </select>
+                            <div class="relative flex-1 group">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <User
+                                        class="text-slate-500 group-focus-within:text-primary transition-colors w-5 h-5" />
+                                </div>
+                                <input
+                                    class="block w-full pl-10 pr-3 py-2 bg-white text-slate-900 border-0 rounded-r-lg ring-1 ring-inset ring-slate-300 focus:outline-none focus:ring-1 focus:ring-primary focus:bg-white placeholder:text-slate-400 sm:text-sm sm:leading-6 transition-all"
+                                    id="docNumber" placeholder="Número de documento" type="text" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-slate-300" for="cardNumber">Número de Tarjeta</label>
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <CreditCard
+                                    class="text-slate-500 group-focus-within:text-primary transition-colors w-5 h-5" />
+                            </div>
+                            <input
+                                class="block w-full pl-10 pr-3 py-2 bg-white text-slate-900 border-0 rounded-md ring-1 ring-inset ring-slate-300 focus:bg-white placeholder:text-slate-400 sm:text-sm sm:leading-6 transition-all focus:outline-none focus:ring-1 focus:ring-primary"
+                                id="cardNumber" placeholder="0000 0000 0000 0000" type="text" />
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-end mb-2">
+                            <label class="text-sm font-bold text-slate-300" for="password">Clave de Internet de 6
+                                dígitos</label>
+                            <a class="text-xs text-primary hover:text-primary-dark transition-colors" href="#">¿Olvidé
+                                mi contraseña?</a>
                         </div>
                         <div class="relative group">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -91,12 +123,28 @@ export default defineComponent({
                                     class="text-slate-500 group-focus-within:text-primary transition-colors w-5 h-5" />
                             </div>
                             <input
-                                class="block w-full pl-10 pr-3 py-3 bg-white text-slate-900 border-0 rounded-md ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-primary focus:bg-white placeholder:text-slate-400 sm:text-sm sm:leading-6 transition-all"
-                                id="password" placeholder="••••••••" type="password" />
+                                class="block w-full pl-10 pr-3 py-2 bg-white text-slate-900 border-0 rounded-md ring-1 ring-inset ring-slate-300 focus:outline-none focus:ring-1 focus:ring-primary focus:bg-white placeholder:text-slate-400 sm:text-sm sm:leading-6 transition-all"
+                                id="password" placeholder="••••••" type="password" maxlength="6" />
                         </div>
                     </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-slate-300">Validación de Seguridad</label>
+                        <div class="flex gap-4 items-center">
+                            <div
+                                class="bg-white rounded-md p-1 h-12 flex items-center justify-center overflow-hidden w-2/3 border border-slate-300 shadow-inner">
+                                <img alt="Captcha"
+                                    class="h-full object-contain cursor-pointer transition-opacity hover:opacity-80"
+                                    src="/assets/img/captcha.webp" />
+                            </div>
+                            <input
+                                class="block w-1/3 py-3 bg-white text-slate-900 border-0 rounded-md ring-1 ring-inset ring-slate-300 focus:outline-none focus:ring-1 focus:ring-primary focus:bg-white placeholder:text-slate-400 text-center font-bold tracking-widest transition-all"
+                                placeholder="Texto" type="text" maxlength="6" />
+                        </div>
+                    </div>
+
                     <button @click="$router.push({ name: 'dashboard' })"
-                        class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 px-4 rounded-md shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all transform hover:-translate-y-0.5 mt-6 flex justify-center items-center gap-2 cursor-pointer"
+                        class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 px-4 rounded-md shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all transform hover:-translate-y-0.5 mt-2 flex justify-center items-center gap-2 cursor-pointer"
                         type="button">
                         <span>Iniciar Sesión</span>
                         <ArrowRight class="w-4 h-4" />

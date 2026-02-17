@@ -11,6 +11,7 @@ import {
     ArrowRight,
     CreditCard
 } from 'lucide-vue-next';
+import VirtualKeyboard from '@/components/VirtualKeyboard.vue';
 
 export default defineComponent({
     name: 'LoginForm',
@@ -23,11 +24,14 @@ export default defineComponent({
         User,
         Lock,
         ArrowRight,
-        CreditCard
+        CreditCard,
+        VirtualKeyboard
     },
     data() {
         return {
-            documentType: 'DNI'
+            documentType: 'DNI',
+            password: '',
+            showKeyboard: false
         }
     }
 });
@@ -122,11 +126,13 @@ export default defineComponent({
                                 <Lock
                                     class="text-slate-500 group-focus-within:text-primary transition-colors w-5 h-5" />
                             </div>
-                            <input
-                                class="block w-full pl-10 pr-3 py-2 bg-white text-slate-900 border-0 rounded-md ring-1 ring-inset ring-slate-300 focus:outline-none focus:ring-1 focus:ring-primary focus:bg-white placeholder:text-slate-400 sm:text-sm sm:leading-6 transition-all"
+                            <input v-model="password" readonly @click="showKeyboard = true"
+                                class="block w-full pl-10 pr-3 py-2 bg-white text-slate-900 border-0 rounded-md ring-1 ring-inset ring-slate-300 focus:outline-none focus:ring-1 focus:ring-primary focus:bg-white placeholder:text-slate-400 sm:text-sm sm:leading-6 transition-all cursor-pointer"
                                 id="password" placeholder="••••••" type="password" maxlength="6" />
                         </div>
                     </div>
+
+                    <!-- Seguirá el captcha antes del botón -->
 
                     <div class="space-y-2">
                         <label class="text-sm font-bold text-slate-300">Validación de Seguridad</label>
@@ -150,6 +156,10 @@ export default defineComponent({
                         <ArrowRight class="w-4 h-4" />
                     </button>
                 </form>
+
+                <!-- Virtual Keyboard Modal -->
+                <VirtualKeyboard v-if="showKeyboard" v-model="password" @close="showKeyboard = false" />
+
                 <div class="mt-8 pt-8 border-t border-white/10 text-center">
                     <p class="text-slate-400 text-sm">¿Aún no tienes cuenta?</p>
                     <a class="text-primary font-semibold hover:text-primary-dark text-sm mt-2 inline-block"

@@ -37,11 +37,8 @@ export default defineComponent({
     methods: {
         generateRandomKeys() {
             const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-            const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-
-            // Combine and shuffle
-            const allKeys = [...numbers, ...letters];
-            this.keys = allKeys.sort(() => Math.random() - 0.5);
+            // Solo números y shuffle
+            this.keys = numbers.sort(() => Math.random() - 0.5);
         },
         addKey(key: string) {
             if (this.inputValue.length < this.maxLength) {

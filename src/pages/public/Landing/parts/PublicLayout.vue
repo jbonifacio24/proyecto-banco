@@ -1,11 +1,21 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { Landmark } from 'lucide-vue-next';
 
 export default defineComponent({
     name: 'PublicLayout',
     components: {
         Landmark
+    },
+    setup() {
+        const showCreditModal = ref(false);
+        function openCreditModal() {
+            showCreditModal.value = true;
+        }
+        function closeCreditModal() {
+            showCreditModal.value = false;
+        }
+        return { showCreditModal, openCreditModal, closeCreditModal };
     }
 });
 </script>
@@ -26,19 +36,29 @@ export default defineComponent({
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
                         <a class="text-slate-600 hover:text-primary font-medium transition-colors" href="#">Inicio</a>
-                        <a class="text-slate-600 hover:text-primary font-medium transition-colors"
-                            href="#">Servicios</a>
+                        <div class="relative group">
+                            <a class="text-slate-600 hover:text-primary font-medium transition-colors cursor-pointer"
+                                href="#">Servicios</a>
+                            <div class="absolute left-0 mt-2 w-56 bg-white border border-slate-200 rounded shadow-lg
+                                opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                                
+                                <a class="block px-4 py-2 text-slate-600 hover:bg-primary/10 hover:text-primary font-medium
+                                    transition-colors" href="#simular-prestamo">Tarjetas</a>
+                                <a class="block px-4 py-2 text-slate-600 hover:bg-primary/10 hover:text-primary font-medium
+                                    transition-colors" href="#prestamos-comerciales">Préstamos</a>
+                                <a class="block px-4 py-2 text-slate-600 hover:bg-primary/10 hover:text-primary font-medium
+                                    transition-colors" href="#simular-prestamo">Seguros</a>
+                            </div>
+                        </div>
                         <a class="text-slate-600 hover:text-primary font-medium transition-colors" href="#">Casos de
                             Éxito</a>
                         <a class="text-slate-600 hover:text-primary font-medium transition-colors" href="#">Blog</a>
                         <a class="text-slate-600 hover:text-primary font-medium transition-colors" href="#">Contacto</a>
                     </div>
-                    <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
                         <button @click="$router.push({ name: 'login' })"
-                            class="px-5 py-2.5 text-slate-700 font-semibold hover:text-primary transition-colors cursor-pointer">Login</button>
-                        <button
                             class="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-lg font-bold transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 transform hover:-translate-y-0.5 cursor-pointer">
-                            REGÍSTRATE
+                            Banca por Internet
                         </button>
                     </div>
                 </div>
@@ -47,5 +67,15 @@ export default defineComponent({
         <main>
             <slot />
         </main>
+        <div v-if="showCreditModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+            <div class="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative">
+                <button @click="closeCreditModal" class="absolute top-2 right-2 text-gray-500 hover:text-primary text-2xl">&times;</button>
+                <CreditSimulator />
+            </div>
+        </div>
     </div>
 </template>
+
+<script setup lang="ts">
+import CreditSimulator from './CreditSimulator.vue';
+</script>

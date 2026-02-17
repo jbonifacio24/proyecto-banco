@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
 import {
     Wallet,
     Search,
@@ -44,6 +44,34 @@ export default defineComponent({
         Receipt,
         Pencil,
         UserPlus
+    },
+    setup() {
+        // Lógica de sesión expirada para el dashboard privado
+        const dashboardSessionTime = ref(300); // 5 minutos (ajusta el tiempo si lo deseas)
+        let dashboardSessionInterval: any = null;
+
+        function redirectToExpired() {
+            window.location.href = '/sesion-expirada';
+        }
+
+        onMounted(() => {
+            dashboardSessionInterval = setInterval(() => {
+                if (dashboardSessionTime.value > 0) {
+                    dashboardSessionTime.value--;
+                } else {
+                    clearInterval(dashboardSessionInterval);
+                    redirectToExpired();
+                }
+            }, 1000);
+        });
+
+        onUnmounted(() => {
+            if (dashboardSessionInterval) clearInterval(dashboardSessionInterval);
+        });
+
+        return {
+            dashboardSessionTime
+        };
     }
 });
 </script>
@@ -89,7 +117,7 @@ export default defineComponent({
         </header>
         <nav
             class="bg-surface-light/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 py-0 shadow-sm sticky top-0 z-10 z-50">
-            <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
                 <ul
                     class="flex items-center gap-8 overflow-x-auto text-sm font-medium hide-scrollbar min-h-[50px] overflow-y-hidden">
                     <li><a class="text-primary border-b-2 border-primary pb-3 px-1 whitespace-nowrap"
@@ -114,6 +142,7 @@ export default defineComponent({
                     <li><a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors whitespace-nowrap"
                             href="#">Seguros</a></li>
                 </ul>
+                <span class="bg-gray-800 text-white px-4 py-2 rounded shadow text-xs font-bold ml-4">Sesión: {{ dashboardSessionTime }}s</span>
             </div>
         </nav>
         <main class="flex-grow bg-secondary-dark pt-8 pb-12 px-6">

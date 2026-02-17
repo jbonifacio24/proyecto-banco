@@ -1,9 +1,20 @@
+
 import { createRouter, createWebHistory } from 'vue-router'
 import Demo from '@/pages/public/Landing/parts/Demo.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/sesion-expirada',
+      name: 'sesion-expirada',
+      component: () => import('@/pages/public/SesionExpirada.vue'),
+    },
+    {
+      path: '/solicitud-prestamo',
+      name: 'loan-request',
+      component: () => import('@/pages/public/Landing/parts/LoanRequest.vue'),
+    },
     {
       path: '/',
       name: 'home',

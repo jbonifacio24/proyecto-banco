@@ -16,7 +16,7 @@ export default defineComponent({
 </script>
 
 <template>
-    <section class="bg-[#1a2533] py-24 relative overflow-visible">
+    <section id="prestamos-comerciales" class="bg-[#1a2533] py-24 relative overflow-visible">
         <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
             <Plus class="absolute top-20 left-[35%] w-24 h-24" />
             <Plus class="absolute top-40 left-[38%] w-16 h-16" />
@@ -89,7 +89,8 @@ export default defineComponent({
                         <MessageSquare class="w-5 h-5" /> Chatear
                     </button>
                     <button
-                        class="bg-white text-slate-900 hover:bg-slate-100 px-6 py-3 rounded font-bold uppercase flex items-center gap-2 transition-colors shadow-md">
+                        class="bg-white text-slate-900 hover:bg-slate-100 px-6 py-3 rounded font-bold uppercase flex items-center gap-2 transition-colors shadow-md"
+                        @click="$emit('open-credit-modal')">
                         <ClipboardList class="w-5 h-5" /> Solicitar préstamo
                     </button>
                 </div>

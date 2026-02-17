@@ -59,8 +59,8 @@ const monthlyPayment = ref<number|null>(null);
 
 
 function resetForm() {
-  amount.value = null;
-  months.value = null;
+  amount.value = 0;
+  months.value = 0;
   rate.value = 12;
   docNumber.value = '';
   errorMsg.value = '';
@@ -78,10 +78,10 @@ watch([amount, months, rate], () => {
 
 function calculate() {
   errorMsg.value = '';
-  if (amount.value <= 0 || amount.value > 350000) {
-    errorMsg.value = 'El monto debe ser mayor a 0 y hasta S/ 350,000.';
-    return;
-  }
+    if (amount.value == null || amount.value <= 0 || amount.value > 350000) {
+      errorMsg.value = 'El monto debe ser mayor a 0 y hasta S/ 350,000.';
+      return;
+    }
   if (rate.value < 12) {
     errorMsg.value = 'La TEA mínima es 12.00%';
     return;
@@ -92,7 +92,11 @@ function calculate() {
   const n = months.value || 1;
   const r = rate.value / 100 / 12;
   if (r === 0) {
-    monthlyPayment.value = principal / n;
+    if (principal != null && n) {
+      monthlyPayment.value = principal / n;
+    } else {
+      monthlyPayment.value = null;
+    }
   } else {
     monthlyPayment.value = principal * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
   }

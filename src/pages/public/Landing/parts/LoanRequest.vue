@@ -248,7 +248,13 @@ onMounted(() => {
   // Si la página fue recargada, redirige a sesión expirada
   if (performance && performance.getEntriesByType) {
     const navEntries = performance.getEntriesByType('navigation');
-    if (navEntries.length && navEntries[0].type === 'reload') {
+    if (
+      Array.isArray(navEntries) &&
+      navEntries.length > 0 &&
+      navEntries[0] &&
+      'type' in navEntries[0] &&
+      (navEntries[0] as PerformanceNavigationTiming).type === 'reload'
+    ) {
       redirectToExpired();
       return;
     }
